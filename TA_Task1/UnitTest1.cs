@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -10,16 +11,17 @@ namespace EPAM_TA
     [TestClass]
     public class UnitTest1
     {
+        private const string Url = "https://www.bbc.com";
 
         [TestMethod]
         public void Test1()
         {
             //Strong value to check the headline
-            string testHeadline = "India air pollution at 'unbearable levels'";
+            string testHeadline = "Nine US citizens killed in Mexico attack";
 
             //Creating Chrome driver and going to the News page
             IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.bbc.com");
+            driver.Navigate().GoToUrl(Url);
             driver.FindElement(By.LinkText("News")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
@@ -39,29 +41,40 @@ namespace EPAM_TA
         public void Test2()
         {
             //List of strong values to check headlines
-            List<string> Expected_Results = new List<string>() { "Hong Kong protests: Knife attacker bites man's ear",
-                                                        "Nigel Farage will not stand as election candidate",
-                                                        "World's most profitable company to go public",
-                                                        "'Comfort women' film to be shown in Japan amid row" };
+            List<string> Expected_Results = new List<string>() { "'Regret' as US begins exit from UN climate accord",
+                                                        "Chilean President Piñera 'will not resign'",
+                                                        "Facebook changes product branding to FACEBOOK",
+                                                        "NZ tourist lost at sea 'survived on boiled sweets'",
+                                                        "Pilot gets life ban after woman's cockpit photo" };
 
             //List of headlines
             List<string> Actual_Results = new List<string>();
 
             //Creating Chrome driver and going to the News page
             IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.bbc.com");
+            driver.Navigate().GoToUrl(Url);
             driver.FindElement(By.LinkText("News")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             //Adding headlines
+            //gs-c-promo nw-c-promo gs-o-faux-block-link gs-u-pb gs-u-pb+@m nw-p-default gs-c-promo--inline gs-c-promo--stacked@m nw-u-w-auto gs-c-promo--flex
+            //List<IWebElement> ElementCollection = driver.FindElements(By.ClassName(".gs-c-promo nw-c-promo gs-o-faux-block-link gs-u-pb gs-u-pb+@m nw-p-default gs-c-promo--inline gs-c-promo--stacked@m nw-u-w-auto gs-c-promo--flex")).ToList();
+
+            //for (int i = 0; i<ElementCollection.Count; i++)
+            //{
+            //    Assert.AreEqual(Expected_Results[i], ElementCollection[i]);
+            //}
+
             IWebElement element1 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[3]/div/div[2]/div/a/h3"));
             Actual_Results.Add(element1.Text);
             IWebElement element2 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[5]/div/div[2]/div/a/h3"));
             Actual_Results.Add(element2.Text);
             IWebElement element3 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[8]/div/div[2]/div/a/h3"));
             Actual_Results.Add(element3.Text);
-            IWebElement element4 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[11]/div/div[2]/div/a/h3"));
+            IWebElement element4 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[9]/div/div[2]/div/a/h3"));
             Actual_Results.Add(element4.Text);
+            IWebElement element5 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[11]/div/div[2]/div/a/h3"));
+            Actual_Results.Add(element5.Text);
 
             //Testing headlines
             try
@@ -79,7 +92,7 @@ namespace EPAM_TA
         {
             //Creating Chrome driver and going to the News page
             IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.bbc.com");
+            driver.Navigate().GoToUrl(Url);
             driver.FindElement(By.LinkText("News")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
