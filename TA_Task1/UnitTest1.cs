@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -17,7 +16,7 @@ namespace EPAM_TA
         public void Test1()
         {
             //Strong value to check the headline
-            string testHeadline = "Nine US citizens killed in Mexico attack";
+            string testHeadline = "Nato alliance is brain dead, says Macron";
 
             //Creating Chrome driver and going to the News page
             IWebDriver driver = new ChromeDriver();
@@ -26,7 +25,8 @@ namespace EPAM_TA
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             //Testing headline
-            IWebElement element = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/a/h3"));
+            IWebElement element = driver.FindElement(By.XPath("//h3[contains(@class, 'gs-c-promo-heading__title')]"));
+
             try
             {
                 Assert.AreEqual(element.Text, testHeadline);
@@ -41,11 +41,11 @@ namespace EPAM_TA
         public void Test2()
         {
             //List of strong values to check headlines
-            List<string> Expected_Results = new List<string>() { "'Regret' as US begins exit from UN climate accord",
-                                                        "Chilean President Piñera 'will not resign'",
-                                                        "Facebook changes product branding to FACEBOOK",
-                                                        "NZ tourist lost at sea 'survived on boiled sweets'",
-                                                        "Pilot gets life ban after woman's cockpit photo" };
+            List<string> Expected_Results = new List<string>() { "Trump denies asking attorney general to clear him",
+                                                                 "Holocaust survivor under guard amid death threats",
+                                                                 "Protesters forcibly cut off Bolivia mayor's hair",
+                                                                 "Beach in Finland covered in rare 'ice eggs'",
+                                                                 "Chris Brown's clothes sale leaves fans angry" };
 
             //List of headlines
             List<string> Actual_Results = new List<string>();
@@ -56,30 +56,15 @@ namespace EPAM_TA
             driver.FindElement(By.LinkText("News")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-            //Adding headlines
-            //gs-c-promo nw-c-promo gs-o-faux-block-link gs-u-pb gs-u-pb+@m nw-p-default gs-c-promo--inline gs-c-promo--stacked@m nw-u-w-auto gs-c-promo--flex
-            //List<IWebElement> ElementCollection = driver.FindElements(By.ClassName(".gs-c-promo nw-c-promo gs-o-faux-block-link gs-u-pb gs-u-pb+@m nw-p-default gs-c-promo--inline gs-c-promo--stacked@m nw-u-w-auto gs-c-promo--flex")).ToList();
-
-            //for (int i = 0; i<ElementCollection.Count; i++)
-            //{
-            //    Assert.AreEqual(Expected_Results[i], ElementCollection[i]);
-            //}
-
-            IWebElement element1 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[3]/div/div[2]/div/a/h3"));
-            Actual_Results.Add(element1.Text);
-            IWebElement element2 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[5]/div/div[2]/div/a/h3"));
-            Actual_Results.Add(element2.Text);
-            IWebElement element3 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[8]/div/div[2]/div/a/h3"));
-            Actual_Results.Add(element3.Text);
-            IWebElement element4 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[9]/div/div[2]/div/a/h3"));
-            Actual_Results.Add(element4.Text);
-            IWebElement element5 = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[11]/div/div[2]/div/a/h3"));
-            Actual_Results.Add(element5.Text);
+            //Finding elements
+            List<IWebElement> Actual_Results_elements = driver.FindElements(By.XPath("//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")).ToList();
+            for (int i = 0; i < Actual_Results_elements.Count; i++)
+                Actual_Results.Add(Actual_Results_elements[i].Text);
 
             //Testing headlines
             try
             {
-                Assert.IsTrue(Expected_Results.SequenceEqual(Actual_Results));
+                Assert.IsTrue(Actual_Results.SequenceEqual(Expected_Results));
             }
             finally
             {
@@ -90,6 +75,9 @@ namespace EPAM_TA
         [TestMethod]
         public void Test3()
         {
+            //Strong value to check the headline
+            string testHeadline = "D-Block Europe";
+
             //Creating Chrome driver and going to the News page
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl(Url);
@@ -97,13 +85,12 @@ namespace EPAM_TA
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             //Storing and entering text
-            string category = driver.FindElement(By.XPath("/html/body/div[7]/div/div[4]/div[2]/div/div/div/div/div[1]/div/div/div[1]/ul/li[2]/a/span")).Text;
-            driver.FindElement(By.XPath("/html/body/header/div/div[1]/div[3]/form/div/input[1]")).SendKeys(category);
-            driver.FindElement(By.XPath("/html/body/header/div/div[1]/div[3]/form/div/button")).Click();
+            string category = driver.FindElement(By.XPath("//a[contains(@class, 'nw-o-link--no-visited-state')]//span")).Text;
+            driver.FindElement(By.Id("orb-search-q")).SendKeys(category);
+            driver.FindElement(By.XPath("//button[text()='Search the BBC']")).Click();
 
             //Testing headline
-            string testHeadline = "India";
-            IWebElement element = driver.FindElement(By.XPath("/html/body/div[6]/section[2]/ol[1]/li[1]/article/div/h1/a"));
+            IWebElement element = driver.FindElement(By.XPath("//ol[contains(@class, 'search-results')]//a"));
             try
             {
                 Assert.AreEqual(element.Text, testHeadline);
