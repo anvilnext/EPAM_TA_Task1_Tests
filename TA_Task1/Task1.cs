@@ -8,7 +8,7 @@ using OpenQA.Selenium.Chrome;
 namespace EPAM_TA
 {
     [TestClass]
-    public class UnitTest1
+    public class Task1
     {
         private const string Url = "https://www.bbc.com";
 
