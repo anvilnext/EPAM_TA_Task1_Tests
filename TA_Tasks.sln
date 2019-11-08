@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TA_Tasks", "TA_Task1\TA_Tasks.csproj", "{EA8B045A-0A09-4522-8572-D3D7405551C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TA_Tasks", "TA_Tasks\TA_Tasks.csproj", "{EA8B045A-0A09-4522-8572-D3D7405551C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

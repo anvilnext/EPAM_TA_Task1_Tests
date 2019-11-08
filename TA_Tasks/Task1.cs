@@ -90,7 +90,7 @@ namespace EPAM_TA
             driver.FindElement(By.XPath("//button[text()='Search the BBC']")).Click();
 
             //Testing headline
-            IWebElement element = driver.FindElement(By.XPath("//ol[contains(@class, 'search-results')]//a"));
+            IWebElement element = driver.FindElement(By.XPath("//ol[contains(@class, 'search-results')]//h1//a"));
             try
             {
                 Assert.AreEqual(element.Text, testHeadline);
