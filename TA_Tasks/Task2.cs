@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using TA_Tasks.BLL;
 using TA_Tasks.PageObjects;
 
 namespace TA_Tasks
@@ -23,8 +24,7 @@ namespace TA_Tasks
             string sample_text = "Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.";
 
             //Going to the submitting stories page
-            Instance instance = new Instance(driver);
-            BbcSubmitStoryPage submit = instance.GoToSubmitPage();
+            BLayer bl = new BLayer(driver);
 
             string shareurl = driver.Url;
 

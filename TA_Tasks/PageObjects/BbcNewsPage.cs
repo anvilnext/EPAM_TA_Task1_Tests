@@ -29,17 +29,16 @@ namespace TA_Tasks.PageObjects
         }
 
         //for test2
-        //[FindsBy(How = How.XPath, Using = "//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")]
-        //private IReadOnlyCollection<IWebElement> actual_headings_coll;
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")]
+        private IList<IWebElement> actual_headings;
 
-        //public List<string> GetSecondaryHeadings()
-        //{
-        //    List<IWebElement> actual_headings = actual_headings_coll.ToList();
-        //    List<string> secondary_headings = new List<string>();
-        //    for (int i = 0; i < actual_headings.Count; i++)
-        //        secondary_headings.Add(actual_headings[i].Text);
-        //    return secondary_headings;
-        //}
+        public List<string> GetSecondaryHeadings()
+        {
+            List<string> secondary_headings = new List<string>();
+            for (int i = 0; i < actual_headings.Count; i++)
+                secondary_headings.Add(actual_headings[i].Text);
+            return secondary_headings;
+        }
 
         //for test3
         [FindsBy(How = How.XPath, Using = "//a[contains(@class, 'nw-o-link--no-visited-state')]//span")]

@@ -21,16 +21,14 @@ namespace TA_Tasks
         public void Test1()
         {
             //Strong value to check the headline
-            string testHeadline = "'Russia directed rebels' accused in MH17 disaster ";
+            string testHeadline = "Ex-US ambassador 'intimidated' by Trump";
 
-            //Going to the News page
-            BLayer bll = new BLayer(driver);
-            BbcNewsPage news = bll.GoToNewsPage();
+            BLayer bl = new BLayer(driver);
             
             //Testing headline
             try
             {
-                Assert.AreEqual(news.GetHeading(), testHeadline);
+                Assert.AreEqual(bl.GetMainHeading(), testHeadline);
             }
             finally
             {
@@ -48,14 +46,12 @@ namespace TA_Tasks
                                                                  "Beach in Finland covered in rare 'ice eggs'",
                                                                  "Chris Brown's clothes sale leaves fans angry" };
 
-            //Going to the News page
-            Instance instance = new Instance(driver);
-            BbcNewsPage news = instance.GoToNewsPage();
+            BLayer bl = new BLayer(driver);
 
             //Testing headlines
             try
             {
-                //Assert.IsTrue(news.GetSecondaryHeadings().SequenceEqual(Expected_Results));
+                Assert.IsTrue(bl.GetSecondaryHeadings().SequenceEqual(Expected_Results));
             }
             finally
             {
@@ -69,17 +65,12 @@ namespace TA_Tasks
             //Strong value to check the headline
             string testHeadline = "D-Block Europe";
 
-            //Going to the News page
-            Instance instance = new Instance(driver);
-            BbcNewsPage news = instance.GoToNewsPage();
-
-            //Invoking search
-            BbcSearchResultsPage result = news.Search();
+            BLayer bl = new BLayer(driver);
 
             //Testing headline
             try
             {
-                Assert.AreEqual(result.GetResultHeadline(), testHeadline);
+                Assert.AreEqual(bl.GetResultHeadline(), testHeadline);
             }
             finally
             {
