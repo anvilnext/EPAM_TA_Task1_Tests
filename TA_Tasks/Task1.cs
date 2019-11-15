@@ -4,30 +4,32 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.PageObjects;
+using TA_Tasks;
+using TA_Tasks.PageObjects;
+
+namespace TA_Tasks
+{
 
     [TestClass]
     public class Task1
     {
-        private const string Url = "https://www.bbc.com";
+        private IWebDriver driver = new ChromeDriver();
 
         [TestMethod]
         public void Test1()
         {
             //Strong value to check the headline
-            string testHeadline = "Nato alliance is brain dead, says Macron";
+            string testHeadline = "'Russia directed rebels' accused in MH17 disaster ";
 
-            //Creating Chrome driver and going to the News page
-            IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl(Url);
-            driver.FindElement(By.LinkText("News")).Click();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            //Going to the News page
+            Instance instance = new Instance(driver);
+            BbcNewsPage news = instance.GoToNewsPage();
 
             //Testing headline
-            IWebElement element = driver.FindElement(By.XPath("//h3[contains(@class, 'gs-c-promo-heading__title')]"));
-
             try
             {
-                Assert.AreEqual(element.Text, testHeadline);
+                Assert.AreEqual(news.GetHeading(), testHeadline);
             }
             finally
             {
@@ -45,24 +47,14 @@ using OpenQA.Selenium.Chrome;
                                                                  "Beach in Finland covered in rare 'ice eggs'",
                                                                  "Chris Brown's clothes sale leaves fans angry" };
 
-            //List of headlines
-            List<string> Actual_Results = new List<string>();
-
-            //Creating Chrome driver and going to the News page
-            IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl(Url);
-            driver.FindElement(By.LinkText("News")).Click();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
-            //Finding elements
-            List<IWebElement> Actual_Results_elements = driver.FindElements(By.XPath("//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")).ToList();
-            for (int i = 0; i < Actual_Results_elements.Count; i++)
-                Actual_Results.Add(Actual_Results_elements[i].Text);
+            //Going to the News page
+            Instance instance = new Instance(driver);
+            BbcNewsPage news = instance.GoToNewsPage();
 
             //Testing headlines
             try
             {
-                Assert.IsTrue(Actual_Results.SequenceEqual(Expected_Results));
+                //Assert.IsTrue(news.GetSecondaryHeadings().SequenceEqual(Expected_Results));
             }
             finally
             {
@@ -76,22 +68,17 @@ using OpenQA.Selenium.Chrome;
             //Strong value to check the headline
             string testHeadline = "D-Block Europe";
 
-            //Creating Chrome driver and going to the News page
-            IWebDriver driver = new ChromeDriver();
-            driver.Navigate().GoToUrl(Url);
-            driver.FindElement(By.LinkText("News")).Click();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            //Going to the News page
+            Instance instance = new Instance(driver);
+            BbcNewsPage news = instance.GoToNewsPage();
 
-            //Storing and entering text
-            string category = driver.FindElement(By.XPath("//a[contains(@class, 'nw-o-link--no-visited-state')]//span")).Text;
-            driver.FindElement(By.Id("orb-search-q")).SendKeys(category);
-            driver.FindElement(By.XPath("//button[text()='Search the BBC']")).Click();
+            //Invoking search
+            BbcSearchResultsPage result = news.Search();
 
             //Testing headline
-            IWebElement element = driver.FindElement(By.XPath("//ol[contains(@class, 'search-results')]//h1//a"));
             try
             {
-                Assert.AreEqual(element.Text, testHeadline);
+                Assert.AreEqual(result.GetResultHeadline(), testHeadline);
             }
             finally
             {
@@ -99,3 +86,5 @@ using OpenQA.Selenium.Chrome;
             }
         }
     }
+
+}
