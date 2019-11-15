@@ -7,6 +7,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.PageObjects;
 using TA_Tasks;
 using TA_Tasks.PageObjects;
+using TA_Tasks.BLL;
 
 namespace TA_Tasks
 {
@@ -23,9 +24,9 @@ namespace TA_Tasks
             string testHeadline = "'Russia directed rebels' accused in MH17 disaster ";
 
             //Going to the News page
-            Instance instance = new Instance(driver);
-            BbcNewsPage news = instance.GoToNewsPage();
-
+            BLayer bll = new BLayer(driver);
+            BbcNewsPage news = bll.GoToNewsPage();
+            
             //Testing headline
             try
             {

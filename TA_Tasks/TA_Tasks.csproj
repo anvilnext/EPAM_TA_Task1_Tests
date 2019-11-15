@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLayer.cs" />
     <Compile Include="Instance.cs" />
     <Compile Include="PageObjects\BbcHaveYourSayPage.cs" />
     <Compile Include="PageObjects\BbcMainPage.cs" />
