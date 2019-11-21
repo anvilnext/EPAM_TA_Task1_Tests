@@ -56,6 +56,16 @@ namespace TA_Tasks.BLL
             return new BbcSubmitStoryPage(driver);
         }
 
-        public 
+        public void FillForm(Dictionary<string, string> values)
+        {
+            BbcSubmitStoryPage submit = new BbcSubmitStoryPage(driver);
+            submit.FillForm(values);
+        }
+
+        public bool CheckFields()
+        {
+            BbcSubmitStoryPage submit = new BbcSubmitStoryPage(driver);
+            return submit.CheckFields();
+        }
     }
 }

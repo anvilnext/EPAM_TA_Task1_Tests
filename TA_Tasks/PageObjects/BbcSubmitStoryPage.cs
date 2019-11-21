@@ -11,6 +11,11 @@ namespace TA_Tasks.PageObjects
     class BbcSubmitStoryPage
     {
         private IWebDriver driver;
+        private Dictionary<string, string> values;
+
+        private string xname = "//input[contains(@class, 'contact-form__input')]";
+        private string xemail = "//input[contains(@class, 'contact-form__input')]/following-sibling::input";
+        private string xcomments = "//textarea[contains(@class, 'contact-form__textarea')]";
 
         public BbcSubmitStoryPage(IWebDriver driver)
         {
@@ -19,36 +24,32 @@ namespace TA_Tasks.PageObjects
         }
 
         //for tests 4-7
-        [FindsBy(How = How.XPath, Using = "//input[contains(@class, 'contact-form__input')]")]
-        private IWebElement input_name;
-
-        [FindsBy(How = How.XPath, Using = "//input[contains(@class, 'contact-form__input')]/following-sibling::input")]
-        private IWebElement input_email;
-
-        [FindsBy(How = How.XPath, Using = "//textarea[contains(@class, 'contact-form__textarea')]")]
-        private IWebElement input_comments;
-
         [FindsBy(How = How.XPath, Using = "//input[contains(@class, 'contact-form__input--submit')]")]
         private IWebElement send_button;
 
-        public void FillName(string text_name)
+        public void FillForm(Dictionary<string, string> values)
         {
-            input_name.SendKeys(text_name);
-        }
-
-        public void FillEmail(string text_email)
-        {
-            input_email.SendKeys(text_email);
-        }
-
-        public void FillComments(string text_comments)
-        {
-            input_comments.SendKeys(text_comments);
+            this.values = values;
+            foreach (string field in values.Keys)
+            {
+                switch (field)
+                {
+                    case "Name":
+                        driver.FindElement(By.XPath(xname)).SendKeys(values["Name"]);
+                        break;
+                    case "Email":
+                        driver.FindElement(By.XPath(xemail)).SendKeys(values["Email"]);
+                        break;
+                    case "Comments":
+                        driver.FindElement(By.XPath(xcomments)).SendKeys(values["Comments"]);
+                        break;
+                }
+            }
         }
 
         public bool CheckFields()
         {
-            if ((input_email.GetAttribute("value") == "") || (input_comments.GetAttribute("value") == ""))
+            if ((driver.FindElement(By.XPath(xemail)).GetAttribute("value") == "") || ((driver.FindElement(By.XPath(xcomments)).GetAttribute("value") == "")))
             {
                 send_button.Click();
                 return true;
@@ -58,6 +59,5 @@ namespace TA_Tasks.PageObjects
                 return false;
             }
         }
-
     }
 }

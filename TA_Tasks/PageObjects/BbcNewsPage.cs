@@ -61,11 +61,12 @@ namespace TA_Tasks.PageObjects
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'More')]")]
         private IWebElement more_button;
 
-        [FindsBy(How = How.LinkText, Using = "Have Your Say")]
+        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Have Your Say')]")]
         private IWebElement have_your_say;
 
         public BbcHaveYourSayPage GoToHaveYourSayPage()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             more_button.Click();
             have_your_say.Click();
             return new BbcHaveYourSayPage(driver);
