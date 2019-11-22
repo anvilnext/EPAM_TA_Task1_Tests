@@ -4,7 +4,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TA_Tasks.BLL;
-using TA_Tasks.PageObjects;
 
 namespace TA_Tasks
 {

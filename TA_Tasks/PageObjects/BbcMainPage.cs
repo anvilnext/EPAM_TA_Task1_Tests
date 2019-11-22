@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TA_Tasks.PageObjects
 {
-    class BbcMainPage
+    public class BbcMainPage
     {
         private IWebDriver driver;
 

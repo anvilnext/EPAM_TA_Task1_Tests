@@ -8,7 +8,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace TA_Tasks.PageObjects
 {
-    class BbcNewsPage
+    public class BbcNewsPage
     {
         private IWebDriver driver;
 

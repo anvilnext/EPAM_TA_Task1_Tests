@@ -4,11 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TA_Tasks.PageObjects
 {
-    class BbcSubmitStoryPage
+    public class BbcSubmitStoryPage
     {
         private IWebDriver driver;
         private Dictionary<string, string> values;
