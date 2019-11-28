@@ -1,22 +1,22 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using TA_Tasks.BLL;
 using TA_Tasks.PageObjects;
 using TechTalk.SpecFlow;
 
-namespace TA_Task1.SpecFlow
+namespace TA_Tasks
 {
     [Binding]
     public class SpecFlowFeature1Steps
     {
-        private IWebDriver driver;
+        private static IWebDriver driver = new ChromeDriver();
+        //BLayer bl = new BLayer(driver);
 
-        public SpecFlowFeature1Steps(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
-
-        [Given("I opened News Page")]
+        [Given(@"I opened News Page")]
         public BbcNewsPage GoToNewsPage()
         {
             BbcMainPage main = new BbcMainPage(driver);
@@ -24,19 +24,25 @@ namespace TA_Task1.SpecFlow
             BbcNewsPage news = main.GoToNewsPage();
             return new BbcNewsPage(driver);
         }
-
-        [When("I check main heading")]
-        public string GetMainHeading()
+        
+        [Then(@"the heading should be (.*) as expected")]
+        public void CheckHeading(string heading)
         {
             BbcNewsPage news = new BbcNewsPage(driver);
-            return news.GetHeading();
+            Assert.AreEqual(news.GetHeading(), heading);
         }
 
-        [Then("the heading should be (.*) as expected")]
-        public void CheckMainHeading(string testHeadline)
+        [Then(@"I test (.*)")]
+        public void CheckSecondaryHeadings(string stuff, Table tableStuff)
         {
             BbcNewsPage news = new BbcNewsPage(driver);
-            Assert.AreEqual(news.GetHeading(), testHeadline);
+            Assert.AreEqual(news.GetSecondaryHeadings(), tableStuff);
         }
+
+        //[Then(@"the heading should be (.*) as expected")]
+        //public void (string p0)
+        //{
+        //    ScenarioContext.Current.Pending();
+        //}
     }
 }

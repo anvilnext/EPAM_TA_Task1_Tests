@@ -19,7 +19,6 @@ namespace TA_Tasks.BLL
         }
 
         //for tests 1-3
-        [Given("I opened News Page")]
         public BbcNewsPage GoToNewsPage()
         {
             BbcMainPage main = new BbcMainPage(driver);
@@ -28,19 +27,17 @@ namespace TA_Tasks.BLL
             return new BbcNewsPage(driver);
         }
 
-        [When("I check main heading")]
         public string GetMainHeading()
         {
             BbcNewsPage news = new BbcNewsPage(driver);
             return news.GetHeading();
         }
 
-        [Then("the heading should be (.*) as expected")]
-        public void CheckMainHeading(string testHeadline)
-        {
-            BbcNewsPage news = new BbcNewsPage(driver);
-            Assert.AreEqual(news.GetHeading(), testHeadline);
-        }
+        //public void CheckMainHeading(string testHeadline)
+        //{
+        //    BbcNewsPage news = new BbcNewsPage(driver);
+        //    Assert.AreEqual(news.GetHeading(), testHeadline);
+        //}
 
         public List<string> GetSecondaryHeadings()
         {

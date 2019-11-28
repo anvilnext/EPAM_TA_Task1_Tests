@@ -24,6 +24,7 @@ namespace TA_Tasks
             string testHeadline = "Ex-US ambassador 'intimidated' by Trump";
 
             BLayer bl = new BLayer(driver);
+            bl.GoToNewsPage();
             
             //Testing headline
             try
@@ -47,6 +48,7 @@ namespace TA_Tasks
                                                                  "Chris Brown's clothes sale leaves fans angry" };
 
             BLayer bl = new BLayer(driver);
+            bl.GoToNewsPage();
 
             //Testing headlines
             try
@@ -66,6 +68,7 @@ namespace TA_Tasks
             string testHeadline = "D-Block Europe";
 
             BLayer bl = new BLayer(driver);
+            bl.GoToNewsPage();
 
             //Testing headline
             try

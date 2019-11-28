@@ -11,10 +11,10 @@ namespace TA_Tasks
     [TestClass]
     public class Task2
     {
-        private readonly string another_url = "https://www.google.com";
+        private string another_url = "https://www.google.com";
         private IWebDriver driver = new ChromeDriver();
-        private readonly string name = "User";
-        private readonly string email = "test@test.com";
+        private string name = "User";
+        private string email = "test@test.com";
 
         //This test checks the reaction of the "Send" button on submitting users' news page
         [TestMethod]
