@@ -119,13 +119,180 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I opened News Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Trump denies asking attorney general to clear him",
-                        "Holocaust survivor under guard amid death threats",
-                        "Protesters forcibly cut off Bolivia mayor\'s hair",
-                        "Beach in Finland covered in rare \'ice eggs\'",
-                        "Chris Brown\'s clothes sale leaves fans angry"});
+                        "headings"});
+            table1.AddRow(new string[] {
+                        "Famous free solo climber falls to his death"});
+            table1.AddRow(new string[] {
+                        "Row over Johnson climate debate \'empty chair\'"});
+            table1.AddRow(new string[] {
+                        "Elizabeth I is secret scribe of ancient manuscript"});
+            table1.AddRow(new string[] {
+                        "Two K-pop stars sentenced to prison for gang rape"});
+            table1.AddRow(new string[] {
+                        "HK police find almost 4,000 petrol bombs on campus"});
 #line 10
- testRunner.Then("I test headings", ((string)(null)), table1, "Then ");
+ testRunner.Then("I test secondary headings", ((string)(null)), table1, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search Main Category")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        public virtual void SearchMainCategory()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Main Category", null, ((string[])(null)));
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 19
+ testRunner.Given("I opened News Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.Then("I search category of main article and compare to Africa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        public virtual void CheckForm()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form", null, ((string[])(null)));
+#line 22
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 23
+ testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "header",
+                        "header"});
+            table2.AddRow(new string[] {
+                        "Name",
+                        "TestName"});
+            table2.AddRow(new string[] {
+                        "Your E-mail address",
+                        "test@test.com"});
+            table2.AddRow(new string[] {
+                        "Town & Country",
+                        "TestTown"});
+            table2.AddRow(new string[] {
+                        "Your telephone number",
+                        "123456"});
+            table2.AddRow(new string[] {
+                        "Comments",
+                        @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open."});
+#line 24
+ testRunner.Then("I fill form", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form 200 Characters")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        public virtual void CheckForm200Characters()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form 200 Characters", null, ((string[])(null)));
+#line 32
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 33
+ testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "header",
+                        "header"});
+            table3.AddRow(new string[] {
+                        "Name",
+                        "TestName"});
+            table3.AddRow(new string[] {
+                        "Your E-mail address",
+                        "test@test.com"});
+            table3.AddRow(new string[] {
+                        "Town & Country",
+                        "TestTown"});
+            table3.AddRow(new string[] {
+                        "Your telephone number",
+                        "123456"});
+            table3.AddRow(new string[] {
+                        "Comments",
+                        @"Light saying him, night night hath creepeth stars night hath beast together Second yielding isn't which make i Spirit moved is were he air upon blessed whose itself. You'll them fly divided, rule second herb winged cattle. Gathered divided moving our that after grass male. In cattle days for don't greater years let shall. And third lights good morning a can't may. Male grass fruitful light void lights you replenish multiply. Won't every image a darkness and brought hath stars made fish also tree i you you'll gathered, doesn't meat rule day gathered midst tree air subdue. A own unto midst. Man fowl likeness brought brought wherein in don't dry. Image him, winged man, fruit. Earth saying under don't let whose sea sixth good gathered the dry thing after yielding moveth them after very our and. May moving kind kind you'll won't winged him hath. The heaven his fish wherein him called moving whose given female. First fill set. Unto. Whales had form two dry lesser itself, thing. Meat he which whales saying darkness very evening won't, gathering day firmament beginning may morning stars face upon from beast. Sea he fruit their don't. Saw given Years seas. Let multiply a."});
+#line 34
+ testRunner.Then("I fill form", ((string)(null)), table3, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form Without Email")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        public virtual void CheckFormWithoutEmail()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form Without Email", null, ((string[])(null)));
+#line 42
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 43
+ testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "header",
+                        "header"});
+            table4.AddRow(new string[] {
+                        "Name",
+                        "TestName"});
+            table4.AddRow(new string[] {
+                        "Your E-mail address",
+                        ""});
+            table4.AddRow(new string[] {
+                        "Town & Country",
+                        "TestTown"});
+            table4.AddRow(new string[] {
+                        "Your telephone number",
+                        "123456"});
+            table4.AddRow(new string[] {
+                        "Comments",
+                        @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open."});
+#line 44
+ testRunner.Then("I fill form", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form Without Comments")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        public virtual void CheckFormWithoutComments()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form Without Comments", null, ((string[])(null)));
+#line 52
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 53
+ testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "header",
+                        "header"});
+            table5.AddRow(new string[] {
+                        "Name",
+                        "TestName"});
+            table5.AddRow(new string[] {
+                        "Your E-mail address",
+                        "test@test.com"});
+            table5.AddRow(new string[] {
+                        "Town & Country",
+                        "TestTown"});
+            table5.AddRow(new string[] {
+                        "Your telephone number",
+                        "123456"});
+            table5.AddRow(new string[] {
+                        "Comments",
+                        ""});
+#line 54
+ testRunner.Then("I fill form", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
