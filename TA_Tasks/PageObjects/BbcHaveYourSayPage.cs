@@ -10,22 +10,21 @@ namespace TA_Tasks.PageObjects
 {
     public class BbcHaveYourSayPage
     {
-        private IWebDriver driver;
+        private IWebDriver Driver => WebDriverBase.GetDriver();
 
-        public BbcHaveYourSayPage(IWebDriver driver)
+        public BbcHaveYourSayPage()
         {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            PageFactory.InitElements(Driver, this);
         }
 
-        //dor tests 4-7
+        //for tests 4-7
         [FindsBy(How = How.LinkText, Using = "How to share with BBC News")]
-        private IWebElement how_to_share;
+        private IWebElement How_to_share;
 
         public BbcSubmitStoryPage GoToSubmitPage()
         {
-            how_to_share.Click();
-            return new BbcSubmitStoryPage(driver);
+            How_to_share.Click();
+            return new BbcSubmitStoryPage();
         }
     }
 }

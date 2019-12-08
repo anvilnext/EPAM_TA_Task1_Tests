@@ -129,6 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form.cs" />
     <Compile Include="PageObjects\BbcHaveYourSayPage.cs" />
     <Compile Include="PageObjects\BbcMainPage.cs" />
     <Compile Include="PageObjects\BbcNewsPage.cs" />
@@ -136,11 +137,12 @@
     <Compile Include="PageObjects\BbcSubmitStoryPage.cs" />
     <Compile Include="SpecFlowFeature1Steps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebDriverBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="SpecFlowFeature1.feature" />
+    <None Include="Feature\SpecFlowFeature1.feature" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

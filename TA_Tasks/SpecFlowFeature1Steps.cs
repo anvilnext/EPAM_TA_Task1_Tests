@@ -12,66 +12,107 @@ namespace TA_Tasks
     [Binding]
     public class SpecFlowFeature1Steps
     {
-        private static IWebDriver driver = new ChromeDriver();
-        private BbcMainPage main = new BbcMainPage(driver);
-        private BbcNewsPage news = new BbcNewsPage(driver);
+        private IWebDriver Driver => WebDriverBase.GetDriver();
+        private BbcMainPage Main = new BbcMainPage();
+        private BbcNewsPage News = new BbcNewsPage();
+        private BbcSubmitStoryPage SubmitPage = new BbcSubmitStoryPage();
 
         [Given(@"I opened News Page")]
         public BbcNewsPage GoToNewsPage()
         {
-            main.GoToPage();
-            main.GoToNewsPage();
-            return new BbcNewsPage(driver);
+            Main.GoToPage().GoToNewsPage();
+            return new BbcNewsPage();
         }
         
         [Then(@"the heading should be (.*) as expected")]
         public void CheckHeading(string heading)
         {
-            Assert.AreEqual(news.GetHeading(), heading);
+            try
+            {
+                Assert.AreEqual(News.GetHeading(), heading);
+            }
+            finally
+            {
+                WebDriverBase.CloseDriver();
+            }
         }
 
         [Then(@"I test secondary headings")]
         public void CheckSecondaryHeadings(Table tableStuff)
         {
             List<string> res = tableStuff.Rows.Select(row => row[0]).ToList();
-            Assert.IsTrue(news.GetSecondaryHeadings().SequenceEqual(res));
+            try
+            {
+                Assert.IsTrue(News.GetSecondaryHeadings().SequenceEqual(res));
+            }
+            finally
+            {
+                WebDriverBase.CloseDriver();
+            }
         }
 
         [Then(@"I search category of main article and compare to (.*)")]
         public void SearchMainCategory(string category)
         {
-            news.Search();
-            BbcSearchResultsPage search_res = new BbcSearchResultsPage(driver);
-            Assert.AreEqual(search_res.GetResultHeadline(), category);
+            News.Search();
+            BbcSearchResultsPage Search_res = new BbcSearchResultsPage();
+            try
+            {
+                Assert.AreEqual(Search_res.GetResultHeadline(), category);
+            }
+            finally
+            {
+                WebDriverBase.CloseDriver();
+            }
         }
 
         [Given(@"I opened Submit Story Page")]
         public BbcSubmitStoryPage GoToSubmitStoryPage()
         {
-            main.GoToPage();
-            main.GoToNewsPage();
-            BbcHaveYourSayPage hys = news.GoToHaveYourSayPage();
-            return hys.GoToSubmitPage();
+            Main.GoToPage().GoToNewsPage();
+            BbcHaveYourSayPage Hys = News.GoToHaveYourSayPage();
+            return Hys.GoToSubmitPage();
         }
 
-        [Then(@"I fill form")]
+        [When(@"I fill form")]
         public void FillForm(Table tableStuff)
         {
-            string another_url = "https://www.google.com";
-            string shareurl = driver.Url;
             List<string> keysList = tableStuff.Rows.Select(row => row[0]).ToList();
             List<string> valuesList = tableStuff.Rows.Select(row => row[1]).ToList();
+
             Dictionary<string, string> values = new Dictionary<string, string>();
             for (int i = 0; i < keysList.Count; i++)
                 values.Add(keysList[i], valuesList[i]);
 
-            BbcSubmitStoryPage sub = new BbcSubmitStoryPage(driver);
-            if (sub.FillForm(values) == true)
+            SubmitPage.FillForm(values);
+        }
+        
+        [Then(@"I check required field (.*)")]
+        public void CheckField(string check_field)
+        {
+            SubmitPage.CheckField(check_field);
+        }
+
+        [Then(@"I decide whether to press Send button")]
+        public void CheckSendButton()
+        {
+            string another_url = "https://www.google.com";
+            string shareurl = Driver.Url;
+
+            try
             {
-                Assert.AreEqual(driver.Url, shareurl);
-            } else
+                if (SubmitPage.CheckForm() == false)
+                {
+                    Assert.AreEqual(Driver.Url, shareurl);
+                }
+                else
+                {
+                    Assert.AreEqual(Driver.Url, another_url);
+                }
+            }
+            finally
             {
-                Assert.AreEqual(driver.Url, another_url);
+                WebDriverBase.CloseDriver();
             }
         }
     }

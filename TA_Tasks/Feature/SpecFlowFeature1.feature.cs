@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace TA_Tasks
+namespace TA_Tasks.Feature
 {
     using TechTalk.SpecFlow;
     
@@ -61,7 +61,7 @@ namespace TA_Tasks
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "SpecFlowFeature1")))
             {
-                global::TA_Tasks.SpecFlowFeature1Feature.FeatureSetup(null);
+                global::TA_Tasks.Feature.SpecFlowFeature1Feature.FeatureSetup(null);
             }
         }
         
@@ -173,7 +173,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "TestName"});
             table2.AddRow(new string[] {
                         "Your E-mail address",
-                        ""});
+                        "test@test.com"});
             table2.AddRow(new string[] {
                         "Town & Country",
                         "TestTown"});
@@ -226,7 +226,13 @@ this.ScenarioInitialize(scenarioInfo);
                         "Comments",
                         @"Light saying him, night night hath creepeth stars night hath beast together Second yielding isn't which make i Spirit moved is were he air upon blessed whose itself. You'll them fly divided, rule second herb winged cattle. Gathered divided moving our that after grass male. In cattle days for don't greater years let shall. And third lights good morning a can't may. Male grass fruitful light void lights you replenish multiply. Won't every image a darkness and brought hath stars made fish also tree i you you'll gathered, doesn't meat rule day gathered midst tree air subdue. A own unto midst. Man fowl likeness brought brought wherein in don't dry. Image him, winged man, fruit. Earth saying under don't let whose sea sixth good gathered the dry thing after yielding moveth them after very our and. May moving kind kind you'll won't winged him hath. The heaven his fish wherein him called moving whose given female. First fill set. Unto. Whales had form two dry lesser itself, thing. Meat he which whales saying darkness very evening won't, gathering day firmament beginning may morning stars face upon from beast. Sea he fruit their don't. Saw given Years seas. Let multiply a."});
 #line 37
- testRunner.Then("I fill form", ((string)(null)), table3, "Then ");
+ testRunner.When("I fill form", ((string)(null)), table3, "When ");
+#line 44
+ testRunner.Then("I check required field Your E-mail address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 45
+ testRunner.And("I check required field Comments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+ testRunner.Then("I decide whether to press Send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -237,10 +243,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void CheckFormWithoutEmail()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form Without Email", null, ((string[])(null)));
-#line 45
+#line 48
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 46
+#line 49
  testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -261,8 +267,14 @@ this.ScenarioInitialize(scenarioInfo);
             table4.AddRow(new string[] {
                         "Comments",
                         @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open."});
-#line 47
- testRunner.Then("I fill form", ((string)(null)), table4, "Then ");
+#line 50
+ testRunner.When("I fill form", ((string)(null)), table4, "When ");
+#line 57
+ testRunner.Then("I check required field Your E-mail address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 58
+ testRunner.And("I check required field Comments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+ testRunner.Then("I decide whether to press Send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -273,10 +285,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void CheckFormWithoutComments()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form Without Comments", null, ((string[])(null)));
-#line 55
+#line 61
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 56
+#line 62
  testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -297,8 +309,14 @@ this.ScenarioInitialize(scenarioInfo);
             table5.AddRow(new string[] {
                         "Comments",
                         ""});
-#line 57
- testRunner.Then("I fill form", ((string)(null)), table5, "Then ");
+#line 63
+ testRunner.When("I fill form", ((string)(null)), table5, "When ");
+#line 70
+ testRunner.Then("I check required field Your E-mail address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 71
+ testRunner.And("I check required field Comments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+ testRunner.Then("I decide whether to press Send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -10,66 +10,65 @@ namespace TA_Tasks.PageObjects
 {
     public class BbcNewsPage
     {
-        private IWebDriver driver;
+        private IWebDriver Driver => WebDriverBase.GetDriver();
 
-        public BbcNewsPage(IWebDriver driver)
+        public BbcNewsPage()
         {
-            this.driver = driver;
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            PageFactory.InitElements(driver, this);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            PageFactory.InitElements(Driver, this);
         }
 
         //for test1
         [FindsBy(How = How.XPath, Using = "//h3[contains(@class, 'gs-c-promo-heading__title')]")]
-        private IWebElement heading;
+        private IWebElement Heading;
 
         public string GetHeading()
         {
-            return heading.Text;
+            return Heading.Text;
         }
 
         //for test2
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")]
-        private IList<IWebElement> actual_headings;
+        private IList<IWebElement> Actual_headings;
 
         public List<string> GetSecondaryHeadings()
         {
             List<string> secondary_headings = new List<string>();
-            for (int i = 0; i < actual_headings.Count; i++)
-                secondary_headings.Add(actual_headings[i].Text);
+            for (int i = 0; i < Actual_headings.Count; i++)
+                secondary_headings.Add(Actual_headings[i].Text);
             return secondary_headings;
         }
 
         //for test3
         [FindsBy(How = How.XPath, Using = "//a[contains(@class, 'nw-o-link--no-visited-state')]//span")]
-        private IWebElement category_element;
+        private IWebElement Category_element;
 
         [FindsBy(How = How.Id, Using = "orb-search-q")]
-        private IWebElement search_field;
+        private IWebElement Search_field;
 
         [FindsBy(How = How.XPath, Using = "//button[text()='Search the BBC']")]
-        private IWebElement search_button;
+        private IWebElement Search_button;
 
         public BbcSearchResultsPage Search()
         {
-            search_field.SendKeys(category_element.Text);
-            search_button.Click();
-            return new BbcSearchResultsPage(driver);
+            Search_field.SendKeys(Category_element.Text);
+            Search_button.Click();
+            return new BbcSearchResultsPage();
         }
 
         //for tests 4-7
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'More')]")]
-        private IWebElement more_button;
+        private IWebElement More_button;
 
         [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Have Your Say')]")]
-        private IWebElement have_your_say;
+        private IWebElement Have_your_say;
 
         public BbcHaveYourSayPage GoToHaveYourSayPage()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            more_button.Click();
-            have_your_say.Click();
-            return new BbcHaveYourSayPage(driver);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            More_button.Click();
+            Have_your_say.Click();
+            return new BbcHaveYourSayPage();
         }
 
     }

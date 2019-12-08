@@ -10,20 +10,20 @@ namespace TA_Tasks.PageObjects
 {
     public class BbcSearchResultsPage
     {
-        private IWebDriver driver;
+        private IWebDriver Driver => WebDriverBase.GetDriver();
 
-        public BbcSearchResultsPage(IWebDriver driver)
+        public BbcSearchResultsPage()
         {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            PageFactory.InitElements(Driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//ol[contains(@class, 'search-results')]//h1//a")]
-        private IWebElement result_headline;
+        private IWebElement Result_headline;
 
+        //first header in search results
         public string GetResultHeadline()
         {
-            return result_headline.Text;
+            return Result_headline.Text;
         }
 
     }

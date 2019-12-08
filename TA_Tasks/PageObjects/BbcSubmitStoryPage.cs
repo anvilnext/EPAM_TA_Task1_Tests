@@ -9,60 +9,30 @@ namespace TA_Tasks.PageObjects
 {
     public class BbcSubmitStoryPage
     {
-        private IWebDriver driver;
-        private string xpathBase = "//label[contains(text(), '')]/following-sibling::";
+        private IWebDriver Driver => WebDriverBase.GetDriver();
+        private static string XpathBase = "//label[contains(text(), '{0}')]/following-sibling::*";
+        private static string Send_button = "//input[contains(@type, 'submit')]";
 
-        public BbcSubmitStoryPage(IWebDriver driver)
+        Form Form1 = new Form(XpathBase, Send_button);
+
+        public BbcSubmitStoryPage()
         {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            PageFactory.InitElements(Driver, this);
         }
 
-        //for tests 4-7
-        [FindsBy(How = How.XPath, Using = "//input[contains(@class, 'contact-form__input--submit')]")]
-        private IWebElement send_button;
-
-        public bool FillForm(Dictionary<string, string> values)
+        public void FillForm(Dictionary<string, string> values)
         {
-            foreach (string field in values.Keys)
-            {
-                if (field != "Comments")
-                {
-                    driver.FindElement(By.XPath(xpathBase.Insert(26, field) + "input")).SendKeys(values[field]);
-                }
-                else
-                {
-                    driver.FindElement(By.XPath(xpathBase.Insert(26, field) + "textarea")).SendKeys(values[field]);
-                }
-            }
-
-            if ((values["Your E-mail address"] == "") || (values["Comments"] == ""))
-            {
-                send_button.Click();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            Form1.FillForm(values);
         }
 
-        //public bool CheckFields()
-        //{
-        //    List<IWebElement> required = driver.FindElements(By.XPath("//span[contains(text(), 'required')]/../following-sibling::input")).ToList();
-        //    List<string> res = new List<string>();
-        //    for (int i = 0; i < required.Count; i++)
-        //        res[i] = required[i].Text;
+        public void CheckField(string check_field)
+        {
+            Form1.CheckField(check_field);
+        }
 
-        //    if ((res.Count == 0) || (res.Contains("")) || (driver.FindElement(By.XPath("//span[contains(text(), 'required')]/../following-sibling::textarea")).GetAttribute("value") == ""))
-        //    {
-        //        send_button.Click();
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+        public bool CheckForm()
+        {
+            return Form1.CheckForm();
+        }
     }
 }

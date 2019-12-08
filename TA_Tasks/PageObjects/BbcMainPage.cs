@@ -10,26 +10,26 @@ namespace TA_Tasks.PageObjects
 {
     public class BbcMainPage
     {
-        private IWebDriver driver;
+        private IWebDriver Driver => WebDriverBase.GetDriver();
 
-        public BbcMainPage(IWebDriver driver)
+        public BbcMainPage()
         {
-            this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            PageFactory.InitElements(Driver, this);
         }
 
         [FindsBy(How = How.LinkText, Using = "News")]
-        private IWebElement news_page_button;
+        private IWebElement News_page_button;
 
-        public void GoToPage()
+        public BbcMainPage GoToPage()
         {
-            driver.Navigate().GoToUrl("https://www.bbc.com");
+            Driver.Navigate().GoToUrl("https://www.bbc.com");
+            return new BbcMainPage();
         }
 
         public BbcNewsPage GoToNewsPage()
         {
-            news_page_button.Click();
-            return new BbcNewsPage(driver);
+            News_page_button.Click();
+            return new BbcNewsPage();
         }
 
     }
