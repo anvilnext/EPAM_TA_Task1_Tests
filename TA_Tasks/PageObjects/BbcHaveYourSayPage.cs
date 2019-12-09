@@ -26,5 +26,15 @@ namespace TA_Tasks.PageObjects
             How_to_share.Click();
             return new BbcSubmitStoryPage();
         }
+
+        //for variant 1 tests 4-7
+        [FindsBy(How = How.LinkText, Using = "Do you have a question for BBC News?")]
+        private IWebElement Question_Link;
+
+        public BbcSubmitQuestionPage GoToQuestionPage()
+        {
+            Question_Link.Click();
+            return new BbcSubmitQuestionPage();
+        }
     }
 }

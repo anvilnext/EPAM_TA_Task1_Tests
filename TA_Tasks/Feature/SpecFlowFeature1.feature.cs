@@ -236,6 +236,100 @@ this.CheckForm2("Test", "", "TestTown", "123456", @"Saying that heaven for divid
 this.CheckForm2("Test", "test@test.com", "TestTown", "123456", "", ((string[])(null)));
 #line hidden
         }
+        
+        public virtual void CheckForm1(string name, string emailAddress, string age, string postcode, string whatQuestionsWouldYouLikeUsToInvestigate, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form1", null, exampleTags);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 38
+ testRunner.Given("I opened Submit Question Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 39
+ testRunner.When(string.Format("I fill form1 with {0}; {1}; {2}; {3}; {4}", name, emailAddress, age, postcode, whatQuestionsWouldYouLikeUsToInvestigate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
+ testRunner.Then("I check required question field Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+ testRunner.And("I check required question field Email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.And("I check required question field What questions would you like us to investigate?", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.Then("I decide whether to press Submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "test@test.com")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+            "trum sodales. Nullam mattis fermentum libero, non volutpat.")]
+        public virtual void CheckForm1_Variant0()
+        {
+#line 37
+this.CheckForm1("Test", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+                    "trum sodales. Nullam mattis fermentum libero, non volutpat.", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "test@test.com")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+            "trum sodales. Nullam mattis fermentum libero, non volutpats.")]
+        public virtual void CheckForm1_Variant1()
+        {
+#line 37
+this.CheckForm1("Test", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+                    "trum sodales. Nullam mattis fermentum libero, non volutpats.", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "test@test.com")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+            "trum sodales. Nullam mattis fermentum libero, non volutpat.")]
+        public virtual void CheckForm1_Variant2()
+        {
+#line 37
+this.CheckForm1("", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+                    "trum sodales. Nullam mattis fermentum libero, non volutpat.", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+            "trum sodales. Nullam mattis fermentum libero, non volutpat.")]
+        public virtual void CheckForm1_Variant3()
+        {
+#line 37
+this.CheckForm1("Test", "", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+                    "trum sodales. Nullam mattis fermentum libero, non volutpat.", ((string[])(null)));
+#line hidden
+        }
     }
 }
 #pragma warning restore

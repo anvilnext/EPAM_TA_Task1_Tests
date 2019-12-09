@@ -16,6 +16,7 @@ namespace TA_Tasks
         private BbcMainPage Main = new BbcMainPage();
         private BbcNewsPage News = new BbcNewsPage();
         private BbcSubmitStoryPage SubmitPage = new BbcSubmitStoryPage();
+        private BbcSubmitQuestionPage QuestionPage = new BbcSubmitQuestionPage();
 
         [Given(@"I opened News Page")]
         public BbcNewsPage GoToNewsPage()
@@ -103,6 +104,58 @@ namespace TA_Tasks
             try
             {
                 if (SubmitPage.CheckForm() == false)
+                {
+                    Assert.AreEqual(Driver.Url, shareurl);
+                }
+                else
+                {
+                    Assert.AreEqual(Driver.Url, another_url);
+                }
+            }
+            finally
+            {
+                WebDriverBase.CloseDriver();
+            }
+        }
+
+        //variant 1
+        [Given(@"I opened Submit Question Page")]
+        public BbcSubmitQuestionPage GoToSubmitQuestionPage()
+        {
+            Main.GoToPage().GoToNewsPage();
+            BbcHaveYourSayPage Hys = News.GoToHaveYourSayPage();
+            return Hys.GoToQuestionPage();
+        }
+
+        [When(@"I fill form1 with (.*); (.*); (.*); (.*); (.*)")]
+        public void FillForm1(string name, string email, string age, string postcode, string comments)
+        {
+            //List<string> keysList = tableStuff.Header.ToList();
+            //List<string> valuesList = tableStuff.Rows.Select(row => row[0]).ToList();
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values.Add("Name", name);
+            values.Add("Email address", email);
+            values.Add("Age", age);
+            values.Add("Postcode", postcode);
+            values.Add("What questions would you like us to investigate?", comments);
+            QuestionPage.FillForm(values);
+        }
+
+        [Then(@"I check required question field (.*)")]
+        public void CheckFieldQ(string check_field)
+        {
+            QuestionPage.CheckField(check_field);
+        }
+
+        [Then(@"I decide whether to press Submit button")]
+        public void CheckSubmitButton()
+        {
+            string another_url = "https://www.google.com";
+            string shareurl = Driver.Url;
+
+            try
+            {
+                if (QuestionPage.CheckForm() == false)
                 {
                     Assert.AreEqual(Driver.Url, shareurl);
                 }

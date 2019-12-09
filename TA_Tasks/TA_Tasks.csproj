@@ -134,6 +134,7 @@
     <Compile Include="PageObjects\BbcMainPage.cs" />
     <Compile Include="PageObjects\BbcNewsPage.cs" />
     <Compile Include="PageObjects\BbcSearchResultsPage.cs" />
+    <Compile Include="PageObjects\BbcSubmitQuestionPage.cs" />
     <Compile Include="PageObjects\BbcSubmitStoryPage.cs" />
     <Compile Include="SpecFlowFeature1Steps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
