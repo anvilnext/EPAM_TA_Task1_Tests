@@ -74,19 +74,20 @@ namespace TA_Tasks
             return Hys.GoToSubmitPage();
         }
 
-        [When(@"I fill form")]
-        public void FillForm(Table tableStuff)
+        [When(@"I fill form with (.*); (.*); (.*); (.*); (.*)")]
+        public void FillForm2(string name, string email, string town, string number, string comments)
         {
-            List<string> keysList = tableStuff.Rows.Select(row => row[0]).ToList();
-            List<string> valuesList = tableStuff.Rows.Select(row => row[1]).ToList();
-
+            //List<string> keysList = tableStuff.Header.ToList();
+            //List<string> valuesList = tableStuff.Rows.Select(row => row[0]).ToList();
             Dictionary<string, string> values = new Dictionary<string, string>();
-            for (int i = 0; i < keysList.Count; i++)
-                values.Add(keysList[i], valuesList[i]);
-
+            values.Add("Name", name);
+            values.Add("Your E-mail address", email);
+            values.Add("Town & Country", town);
+            values.Add("Your telephone number", number);
+            values.Add("Comments", comments);
             SubmitPage.FillForm(values);
         }
-        
+
         [Then(@"I check required field (.*)")]
         public void CheckField(string check_field)
         {
