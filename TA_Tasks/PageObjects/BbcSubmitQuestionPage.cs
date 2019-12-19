@@ -14,8 +14,9 @@ namespace TA_Tasks.PageObjects
         private IWebDriver Driver => WebDriverBase.GetDriver();
         private static string XpathBase = "//input[@placeholder='{0}']|//textarea[@placeholder='{0}']";
         private static string Send_button = "//button[contains(text(), 'Submit')]";
+        private static string[] Required = { "Name", "Email address", "What questions would you like us to investigate?" };
 
-        Form Form1 = new Form(XpathBase, Send_button);
+        Form Form1 = new Form(XpathBase, Send_button, Required);
 
         public BbcSubmitQuestionPage()
         {
@@ -25,11 +26,6 @@ namespace TA_Tasks.PageObjects
         public void FillForm(Dictionary<string, string> values)
         {
             Form1.FillForm(values);
-        }
-
-        public void CheckField(string check_field)
-        {
-            Form1.CheckField(check_field);
         }
 
         public bool CheckForm()

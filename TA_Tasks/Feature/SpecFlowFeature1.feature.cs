@@ -112,10 +112,10 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void CheckSecondaryHeadings()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Secondary Headings", null, ((string[])(null)));
-#line 8
+#line 10
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 9
+#line 11
  testRunner.Given("I opened News Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -130,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Two K-pop stars sentenced to prison for gang rape"});
             table1.AddRow(new string[] {
                         "HK police find almost 4,000 petrol bombs on campus"});
-#line 10
+#line 12
  testRunner.Then("I test secondary headings", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -142,191 +142,265 @@ this.ScenarioInitialize(scenarioInfo);
         public virtual void SearchMainCategory()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Main Category", null, ((string[])(null)));
-#line 18
+#line 22
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 19
+#line 23
  testRunner.Given("I opened News Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 20
+#line 24
  testRunner.Then("I search category of main article and compare to Africa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        public virtual void CheckForm2(string name, string yourE_MailAddress, string townCountry, string yourTelephoneNumber, string comments, string[] exampleTags)
+        public virtual void CheckForm2Positive(string name, string yourE_MailAddress, string townCountry, string yourTelephoneNumber, string comments, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form2", null, exampleTags);
-#line 23
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form2 Positive", null, exampleTags);
+#line 29
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 24
+#line 30
  testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
- testRunner.When(string.Format("I fill form with {0}; {1}; {2}; {3}; {4}", name, yourE_MailAddress, townCountry, yourTelephoneNumber, comments), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 26
- testRunner.Then("I check required field Your E-mail address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 27
- testRunner.And("I check required field Comments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
- testRunner.Then("I decide whether to press Send button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Your E-mail address",
+                        "Town & Country",
+                        "Your telephone number",
+                        "Comments"});
+            table2.AddRow(new string[] {
+                        string.Format("{0}", name),
+                        string.Format("{0}", yourE_MailAddress),
+                        string.Format("{0}", townCountry),
+                        string.Format("{0}", yourTelephoneNumber),
+                        string.Format("{0}", comments)});
+#line 31
+ testRunner.When("I fill form with values", ((string)(null)), table2, "When ");
+#line 34
+ testRunner.Then("I make sure that I submitted a Story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2 Positive: Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your E-mail address", "test@test.com")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Town & Country", "TestTown")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your telephone number", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Comments", @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.")]
-        public virtual void CheckForm2_Variant0()
+        public virtual void CheckForm2Positive_Test()
         {
-#line 23
-this.CheckForm2("Test", "test@test.com", "TestTown", "123456", @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.", ((string[])(null)));
+#line 29
+this.CheckForm2Positive("Test", "test@test.com", "TestTown", "123456", @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.", ((string[])(null)));
 #line hidden
         }
         
+        public virtual void CheckForm2Negative(string name, string yourE_MailAddress, string townCountry, string yourTelephoneNumber, string comments, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form2 Negative", null, exampleTags);
+#line 41
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 42
+ testRunner.Given("I opened Submit Story Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Your E-mail address",
+                        "Town & Country",
+                        "Your telephone number",
+                        "Comments"});
+            table3.AddRow(new string[] {
+                        string.Format("{0}", name),
+                        string.Format("{0}", yourE_MailAddress),
+                        string.Format("{0}", townCountry),
+                        string.Format("{0}", yourTelephoneNumber),
+                        string.Format("{0}", comments)});
+#line 43
+ testRunner.When("I fill form with values", ((string)(null)), table3, "When ");
+#line 46
+ testRunner.Then("I make sure that I submitted a Story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2 Negative: Variant 0")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your E-mail address", "test@test.com")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Town & Country", "TestTown")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your telephone number", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Comments", @"Light saying him, night night hath creepeth stars night hath beast together Second yielding isn't which make i Spirit moved is were he air upon blessed whose itself. You'll them fly divided, rule second herb winged cattle. Gathered divided moving our that after grass male. In cattle days for don't greater years let shall. And third lights good morning a can't may. Male grass fruitful light void lights you replenish multiply. Won't every image a darkness and brought hath stars made fish also tree i you you'll gathered, doesn't meat rule day gathered midst tree air subdue. A own unto midst. Man fowl likeness brought brought wherein in don't dry. Image him, winged man, fruit. Earth saying under don't let whose sea sixth good gathered the dry thing after yielding moveth them after very our and. May moving kind kind you'll won't winged him hath. The heaven his fish wherein him called moving whose given female. First fill set. Unto. Whales had form two dry lesser itself, thing. Meat he which whales saying darkness very evening won't, gathering day firmament beginning may morning stars face upon from beast. Sea he fruit their don't. Saw given Years seas. Let multiply a.")]
-        public virtual void CheckForm2_Variant1()
+        public virtual void CheckForm2Negative_Variant0()
         {
-#line 23
-this.CheckForm2("Test", "test@test.com", "TestTown", "123456", @"Light saying him, night night hath creepeth stars night hath beast together Second yielding isn't which make i Spirit moved is were he air upon blessed whose itself. You'll them fly divided, rule second herb winged cattle. Gathered divided moving our that after grass male. In cattle days for don't greater years let shall. And third lights good morning a can't may. Male grass fruitful light void lights you replenish multiply. Won't every image a darkness and brought hath stars made fish also tree i you you'll gathered, doesn't meat rule day gathered midst tree air subdue. A own unto midst. Man fowl likeness brought brought wherein in don't dry. Image him, winged man, fruit. Earth saying under don't let whose sea sixth good gathered the dry thing after yielding moveth them after very our and. May moving kind kind you'll won't winged him hath. The heaven his fish wherein him called moving whose given female. First fill set. Unto. Whales had form two dry lesser itself, thing. Meat he which whales saying darkness very evening won't, gathering day firmament beginning may morning stars face upon from beast. Sea he fruit their don't. Saw given Years seas. Let multiply a.", ((string[])(null)));
+#line 41
+this.CheckForm2Negative("Test", "test@test.com", "TestTown", "123456", @"Light saying him, night night hath creepeth stars night hath beast together Second yielding isn't which make i Spirit moved is were he air upon blessed whose itself. You'll them fly divided, rule second herb winged cattle. Gathered divided moving our that after grass male. In cattle days for don't greater years let shall. And third lights good morning a can't may. Male grass fruitful light void lights you replenish multiply. Won't every image a darkness and brought hath stars made fish also tree i you you'll gathered, doesn't meat rule day gathered midst tree air subdue. A own unto midst. Man fowl likeness brought brought wherein in don't dry. Image him, winged man, fruit. Earth saying under don't let whose sea sixth good gathered the dry thing after yielding moveth them after very our and. May moving kind kind you'll won't winged him hath. The heaven his fish wherein him called moving whose given female. First fill set. Unto. Whales had form two dry lesser itself, thing. Meat he which whales saying darkness very evening won't, gathering day firmament beginning may morning stars face upon from beast. Sea he fruit their don't. Saw given Years seas. Let multiply a.", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2 Negative: Variant 1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your E-mail address", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Town & Country", "TestTown")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your telephone number", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Comments", @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.")]
-        public virtual void CheckForm2_Variant2()
+        public virtual void CheckForm2Negative_Variant1()
         {
-#line 23
-this.CheckForm2("Test", "", "TestTown", "123456", @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.", ((string[])(null)));
+#line 41
+this.CheckForm2Negative("Test", "", "TestTown", "123456", @"Saying that heaven for divide creeping cattle unto Yielding. Him i our, open was. Every waters female can't unto you'll signs open yielding behold fill morning. You're forth creature his said had one. Creature morning all creepeth gathering. Blessed wherein and kind. Day fowl may winged. Were from beast. Waters night together above itself fifth in isn't own morning made itself gathered moved day bearing heaven, yielding lesser. Winged creature unto void dry. Give own also. Spirit you second. Male land made image spirit grass brought creepeth, doesn't tree creeping him days very moved set, open doesn't brought fruit open.", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2: Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form2 Negative: Variant 2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your E-mail address", "test@test.com")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Town & Country", "TestTown")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Your telephone number", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Comments", "")]
-        public virtual void CheckForm2_Variant3()
+        public virtual void CheckForm2Negative_Variant2()
         {
-#line 23
-this.CheckForm2("Test", "test@test.com", "TestTown", "123456", "", ((string[])(null)));
+#line 41
+this.CheckForm2Negative("Test", "test@test.com", "TestTown", "123456", "", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void CheckForm1(string name, string emailAddress, string age, string postcode, string whatQuestionsWouldYouLikeUsToInvestigate, string[] exampleTags)
+        public virtual void CheckForm1Positive(string name, string emailAddress, string age, string postcode, string whatQuestionsWouldYouLikeUsToInvestigate, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form1", null, exampleTags);
-#line 37
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form1 Positive", null, exampleTags);
+#line 56
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 38
+#line 57
  testRunner.Given("I opened Submit Question Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
- testRunner.When(string.Format("I fill form1 with {0}; {1}; {2}; {3}; {4}", name, emailAddress, age, postcode, whatQuestionsWouldYouLikeUsToInvestigate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
- testRunner.Then("I check required question field Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 41
- testRunner.And("I check required question field Email address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
- testRunner.And("I check required question field What questions would you like us to investigate?", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
- testRunner.Then("I decide whether to press Submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Email address",
+                        "Age",
+                        "Postcode",
+                        "What questions would you like us to investigate?"});
+            table4.AddRow(new string[] {
+                        string.Format("{0}", name),
+                        string.Format("{0}", emailAddress),
+                        string.Format("{0}", age),
+                        string.Format("{0}", postcode),
+                        string.Format("{0}", whatQuestionsWouldYouLikeUsToInvestigate)});
+#line 58
+ testRunner.When("I fill form with values", ((string)(null)), table4, "When ");
+#line 61
+ testRunner.Then("I make sure that I submitted a Question", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1 Positive: Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "test@test.com")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
             "trum sodales. Nullam mattis fermentum libero, non volutpat.")]
-        public virtual void CheckForm1_Variant0()
+        public virtual void CheckForm1Positive_Test()
         {
-#line 37
-this.CheckForm1("Test", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+#line 56
+this.CheckForm1Positive("Test", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
                     "trum sodales. Nullam mattis fermentum libero, non volutpat.", ((string[])(null)));
 #line hidden
         }
         
+        public virtual void CheckForm1Negative(string name, string emailAddress, string age, string postcode, string whatQuestionsWouldYouLikeUsToInvestigate, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Form1 Negative", null, exampleTags);
+#line 68
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 69
+ testRunner.Given("I opened Submit Question Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Email address",
+                        "Age",
+                        "Postcode",
+                        "What questions would you like us to investigate?"});
+            table5.AddRow(new string[] {
+                        string.Format("{0}", name),
+                        string.Format("{0}", emailAddress),
+                        string.Format("{0}", age),
+                        string.Format("{0}", postcode),
+                        string.Format("{0}", whatQuestionsWouldYouLikeUsToInvestigate)});
+#line 70
+ testRunner.When("I fill form with values", ((string)(null)), table5, "When ");
+#line 73
+ testRunner.Then("I make sure that I submitted a Question", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1 Negative: Variant 0")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "test@test.com")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
             "trum sodales. Nullam mattis fermentum libero, non volutpats.")]
-        public virtual void CheckForm1_Variant1()
+        public virtual void CheckForm1Negative_Variant0()
         {
-#line 37
-this.CheckForm1("Test", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+#line 68
+this.CheckForm1Negative("Test", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
                     "trum sodales. Nullam mattis fermentum libero, non volutpats.", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1 Negative: Variant 1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "test@test.com")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
             "trum sodales. Nullam mattis fermentum libero, non volutpat.")]
-        public virtual void CheckForm1_Variant2()
+        public virtual void CheckForm1Negative_Variant1()
         {
-#line 37
-this.CheckForm1("", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+#line 68
+this.CheckForm1Negative("", "test@test.com", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
                     "trum sodales. Nullam mattis fermentum libero, non volutpat.", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1: Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Form1 Negative: Variant 2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecFlowFeature1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Email address", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Age", "20")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Postcode", "123456")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:What questions would you like us to investigate?", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
             "trum sodales. Nullam mattis fermentum libero, non volutpat.")]
-        public virtual void CheckForm1_Variant3()
+        public virtual void CheckForm1Negative_Variant2()
         {
-#line 37
-this.CheckForm1("Test", "", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
+#line 68
+this.CheckForm1Negative("Test", "", "20", "123456", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum ru" +
                     "trum sodales. Nullam mattis fermentum libero, non volutpat.", ((string[])(null)));
 #line hidden
         }

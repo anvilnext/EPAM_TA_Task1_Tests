@@ -12,9 +12,10 @@ namespace TA_Tasks.PageObjects
         private IWebDriver Driver => WebDriverBase.GetDriver();
         private static string XpathBase = "//label[contains(text(), '{0}')]/following-sibling::*";
         private static string Send_button = "//input[contains(@type, 'submit')]";
+        private static string[] Required = { "Your E-mail address", "Comments" };
 
-        Form Form2 = new Form(XpathBase, Send_button);
-
+        Form Form2 = new Form(XpathBase, Send_button, Required);
+        
         public BbcSubmitStoryPage()
         {
             PageFactory.InitElements(Driver, this);
@@ -23,11 +24,6 @@ namespace TA_Tasks.PageObjects
         public void FillForm(Dictionary<string, string> values)
         {
             Form2.FillForm(values);
-        }
-
-        public void CheckField(string check_field)
-        {
-            Form2.CheckField(check_field);
         }
 
         public bool CheckForm()

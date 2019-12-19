@@ -15,8 +15,6 @@ namespace TA_Tasks
         private IWebDriver Driver => WebDriverBase.GetDriver();
         private BbcMainPage Main = new BbcMainPage();
         private BbcNewsPage News = new BbcNewsPage();
-        private BbcSubmitStoryPage SubmitPage = new BbcSubmitStoryPage();
-        private BbcSubmitQuestionPage QuestionPage = new BbcSubmitQuestionPage();
 
         [Given(@"I opened News Page")]
         public BbcNewsPage GoToNewsPage()
@@ -28,28 +26,14 @@ namespace TA_Tasks
         [Then(@"the heading should be (.*) as expected")]
         public void CheckHeading(string heading)
         {
-            try
-            {
-                Assert.AreEqual(News.GetHeading(), heading);
-            }
-            finally
-            {
-                WebDriverBase.CloseDriver();
-            }
+            Assert.AreEqual(heading, News.GetHeading());
         }
 
         [Then(@"I test secondary headings")]
         public void CheckSecondaryHeadings(Table tableStuff)
         {
             List<string> res = tableStuff.Rows.Select(row => row[0]).ToList();
-            try
-            {
-                Assert.IsTrue(News.GetSecondaryHeadings().SequenceEqual(res));
-            }
-            finally
-            {
-                WebDriverBase.CloseDriver();
-            }
+            Assert.IsTrue(News.GetSecondaryHeadings().SequenceEqual(res));
         }
 
         [Then(@"I search category of main article and compare to (.*)")]
@@ -57,16 +41,10 @@ namespace TA_Tasks
         {
             News.Search();
             BbcSearchResultsPage Search_res = new BbcSearchResultsPage();
-            try
-            {
-                Assert.AreEqual(Search_res.GetResultHeadline(), category);
-            }
-            finally
-            {
-                WebDriverBase.CloseDriver();
-            }
+            Assert.AreEqual(category, Search_res.GetResultHeadline());
         }
 
+        //variant 2 page
         [Given(@"I opened Submit Story Page")]
         public BbcSubmitStoryPage GoToSubmitStoryPage()
         {
@@ -75,50 +53,7 @@ namespace TA_Tasks
             return Hys.GoToSubmitPage();
         }
 
-        [When(@"I fill form with (.*); (.*); (.*); (.*); (.*)")]
-        public void FillForm2(string name, string email, string town, string number, string comments)
-        {
-            //List<string> keysList = tableStuff.Header.ToList();
-            //List<string> valuesList = tableStuff.Rows.Select(row => row[0]).ToList();
-            Dictionary<string, string> values = new Dictionary<string, string>();
-            values.Add("Name", name);
-            values.Add("Your E-mail address", email);
-            values.Add("Town & Country", town);
-            values.Add("Your telephone number", number);
-            values.Add("Comments", comments);
-            SubmitPage.FillForm(values);
-        }
-
-        [Then(@"I check required field (.*)")]
-        public void CheckField(string check_field)
-        {
-            SubmitPage.CheckField(check_field);
-        }
-
-        [Then(@"I decide whether to press Send button")]
-        public void CheckSendButton()
-        {
-            string another_url = "https://www.google.com";
-            string shareurl = Driver.Url;
-
-            try
-            {
-                if (SubmitPage.CheckForm() == false)
-                {
-                    Assert.AreEqual(Driver.Url, shareurl);
-                }
-                else
-                {
-                    Assert.AreEqual(Driver.Url, another_url);
-                }
-            }
-            finally
-            {
-                WebDriverBase.CloseDriver();
-            }
-        }
-
-        //variant 1
+        //variant 1 page
         [Given(@"I opened Submit Question Page")]
         public BbcSubmitQuestionPage GoToSubmitQuestionPage()
         {
@@ -127,46 +62,27 @@ namespace TA_Tasks
             return Hys.GoToQuestionPage();
         }
 
-        [When(@"I fill form1 with (.*); (.*); (.*); (.*); (.*)")]
-        public void FillForm1(string name, string email, string age, string postcode, string comments)
+        //other methods work with both variants because of static class Helper
+        [When(@"I fill form with values")]
+        public void FillForm(Table tableStuff)
         {
-            //List<string> keysList = tableStuff.Header.ToList();
-            //List<string> valuesList = tableStuff.Rows.Select(row => row[0]).ToList();
-            Dictionary<string, string> values = new Dictionary<string, string>();
-            values.Add("Name", name);
-            values.Add("Email address", email);
-            values.Add("Age", age);
-            values.Add("Postcode", postcode);
-            values.Add("What questions would you like us to investigate?", comments);
-            QuestionPage.FillForm(values);
+            Dictionary<string, string> form_filling = tableStuff.Rows[0].ToDictionary(p => p.Key, p => p.Value);
+            Helper.FillForm(form_filling);
         }
 
-        [Then(@"I check required question field (.*)")]
-        public void CheckFieldQ(string check_field)
-        {
-            QuestionPage.CheckField(check_field);
-        }
-
-        [Then(@"I decide whether to press Submit button")]
-        public void CheckSubmitButton()
+        [Then(@"I make sure that I submitted a (.*)")]
+        public void CheckForm(string pagetype)
         {
             string another_url = "https://www.google.com";
             string shareurl = Driver.Url;
 
-            try
+            if (Helper.CheckForm(pagetype) == false)
             {
-                if (QuestionPage.CheckForm() == false)
-                {
-                    Assert.AreEqual(Driver.Url, shareurl);
-                }
-                else
-                {
-                    Assert.AreEqual(Driver.Url, another_url);
-                }
+                Assert.AreEqual(shareurl, Driver.Url);
             }
-            finally
+            else
             {
-                WebDriverBase.CloseDriver();
+                Assert.AreEqual(another_url, Driver.Url);
             }
         }
     }

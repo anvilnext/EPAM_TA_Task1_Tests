@@ -8,17 +8,19 @@ using System.Threading.Tasks;
 
 namespace TA_Tasks
 {
-    class Form
+    public class Form
     {
         private IWebDriver Driver => WebDriverBase.GetDriver();
         private string XpathBase;
         private string Send_button;
+        private string[] Required;
         private bool AllRequiredNotEmpty = true;
 
-        public Form(string XpathBase, string Send_button)
+        public Form(string XpathBase, string Send_button, string[] Required)
         {
             this.XpathBase = XpathBase;
             this.Send_button = Send_button;
+            this.Required = Required;
         }
 
         public void FillForm(Dictionary<string, string> values)
@@ -29,15 +31,17 @@ namespace TA_Tasks
             }
         }
 
-        //if empty required field found - set the field to false
-        public void CheckField(string check_field)
-        {
-            if (Driver.FindElement(By.XPath(string.Format(XpathBase, check_field))).GetAttribute("value") == "")
-                AllRequiredNotEmpty = false;
-        }
-
+        //if empty required field found - set the value to false
         public bool CheckForm()
         {
+            foreach (string s in Required)
+            {
+                if (Driver.FindElement(By.XPath(string.Format(XpathBase, s))).GetAttribute("value") == "")
+                {
+                    AllRequiredNotEmpty = false;
+                } 
+            }
+
             if (AllRequiredNotEmpty == false)
             {
                 Driver.FindElement(By.XPath(Send_button)).Click();
