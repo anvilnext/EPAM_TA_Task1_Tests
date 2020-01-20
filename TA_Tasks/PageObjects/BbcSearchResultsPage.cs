@@ -17,7 +17,8 @@ namespace TA_Tasks.PageObjects
             PageFactory.InitElements(Driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//ol[contains(@class, 'search-results')]//h1//a")]
+        //[FindsBy(How = How.XPath, Using = "//ol[contains(@class, 'search-results')]//h1//a")]
+        [FindsBy(How = How.CssSelector, Using = "ol[class*='search-results'] h1 a")]
         private IWebElement Result_headline;
 
         //first header in search results

@@ -19,7 +19,8 @@ namespace TA_Tasks.PageObjects
         }
 
         //for test1
-        [FindsBy(How = How.XPath, Using = "//h3[contains(@class, 'gs-c-promo-heading__title')]")]
+        //[FindsBy(How = How.XPath, Using = "//h3[contains(@class, 'gs-c-promo-heading__title')]")]
+        [FindsBy(How = How.CssSelector, Using = "h3[class*='gs-c-promo-heading__title']")]
         private IWebElement Heading;
 
         public string GetHeading()
@@ -28,7 +29,8 @@ namespace TA_Tasks.PageObjects
         }
 
         //for test2
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")]
+        //[FindsBy(How = How.XPath, Using = "//div[contains(@class, 'nw-c-top-stories__secondary-item')]//h3")]
+        [FindsBy(How = How.CssSelector, Using = "div[class*='nw-c-top-stories__secondary-item'] h3")]
         private IList<IWebElement> Actual_headings;
 
         public List<string> GetSecondaryHeadings()
@@ -40,13 +42,15 @@ namespace TA_Tasks.PageObjects
         }
 
         //for test3
-        [FindsBy(How = How.XPath, Using = "//a[contains(@class, 'nw-o-link--no-visited-state')]//span")]
+        //[FindsBy(How = How.XPath, Using = "//a[contains(@class, 'nw-o-link--no-visited-state')]//span")]
+        [FindsBy(How = How.CssSelector, Using = "a[class*='nw-o-link--no-visited-state'] span")]
         private IWebElement Category_element;
 
-        [FindsBy(How = How.Id, Using = "orb-search-q")]
+        [FindsBy(How = How.CssSelector, Using = "input[placeholder='Search']")]
         private IWebElement Search_field;
 
-        [FindsBy(How = How.XPath, Using = "//button[text()='Search the BBC']")]
+        //[FindsBy(How = How.XPath, Using = "//button[text()='Search the BBC']")]
+        [FindsBy(How = How.CssSelector, Using = "button#orb-search-button")]
         private IWebElement Search_button;
 
         public BbcSearchResultsPage Search()
@@ -57,10 +61,12 @@ namespace TA_Tasks.PageObjects
         }
 
         //for tests 4-7
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'More')]")]
+        //[FindsBy(How = How.XPath, Using = "//span[contains(text(), 'More')]")]
+        [FindsBy(How = How.CssSelector, Using = "button[class*='morebutton']")]
         private IWebElement More_button;
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Have Your Say')]")]
+        //[FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Have Your Say')]")]
+        [FindsBy(How = How.CssSelector, Using = "a[href*='have_your_say']")]
         private IWebElement Have_your_say;
 
         public BbcHaveYourSayPage GoToHaveYourSayPage()

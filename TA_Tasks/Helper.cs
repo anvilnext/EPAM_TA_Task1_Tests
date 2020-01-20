@@ -14,7 +14,7 @@ namespace TA_Tasks
             BbcSubmitStoryPage Submit = new BbcSubmitStoryPage();
             BbcSubmitQuestionPage Question = new BbcSubmitQuestionPage();
 
-            if (d.ContainsKey("Comments"))
+            if (d.ContainsKey("message"))
             {
                 Submit.FillForm(d);
             }

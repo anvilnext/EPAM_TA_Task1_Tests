@@ -11,14 +11,16 @@ namespace TA_Tasks
     public class Form
     {
         private IWebDriver Driver => WebDriverBase.GetDriver();
-        private string XpathBase;
+        //private string XpathBase;
+        private string CSSBase;
         private string Send_button;
         private string[] Required;
         private bool AllRequiredNotEmpty = true;
 
-        public Form(string XpathBase, string Send_button, string[] Required)
+        public Form(string CSSBase, string Send_button, string[] Required)
         {
-            this.XpathBase = XpathBase;
+            //this.XpathBase = XpathBase;
+            this.CSSBase = CSSBase;
             this.Send_button = Send_button;
             this.Required = Required;
         }
@@ -27,7 +29,7 @@ namespace TA_Tasks
         {
             foreach (string field in values.Keys)
             {
-                Driver.FindElement(By.XPath(string.Format(XpathBase, field))).SendKeys(values[field]);
+                Driver.FindElement(By.CssSelector(string.Format(CSSBase, field))).SendKeys(values[field]);
             }
         }
 
@@ -36,7 +38,7 @@ namespace TA_Tasks
         {
             foreach (string s in Required)
             {
-                if (Driver.FindElement(By.XPath(string.Format(XpathBase, s))).GetAttribute("value") == "")
+                if (Driver.FindElement(By.CssSelector(string.Format(CSSBase, s))).GetAttribute("value") == "")
                 {
                     AllRequiredNotEmpty = false;
                 } 
@@ -44,7 +46,7 @@ namespace TA_Tasks
 
             if (AllRequiredNotEmpty == false)
             {
-                Driver.FindElement(By.XPath(Send_button)).Click();
+                Driver.FindElement(By.CssSelector(Send_button)).Click();
             }
 
             return AllRequiredNotEmpty;
